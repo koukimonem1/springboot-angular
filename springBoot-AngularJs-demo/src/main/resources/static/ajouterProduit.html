@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<style>
+.autocompletedemoCustomTemplate .autocomplete-custom-template li {
+	border-bottom: 1px solid #ccc;
+	height: auto;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	white-space: normal;
+}
+
+.autocompletedemoCustomTemplate .autocomplete-custom-template li:last-child
+	{
+	border-bottom-width: 0;
+}
+
+.autocompletedemoCustomTemplate .autocomplete-custom-template .item-title,
+	.autocompletedemoCustomTemplate .autocomplete-custom-template .item-metadata
+	{
+	display: block;
+	line-height: 2;
+}
+
+.autocompletedemoCustomTemplate .autocomplete-custom-template .item-title md-icon
+	{
+	height: 18px;
+	width: 18px;
+}
+</style>
+</head>
+
+<body ng-app="myApp" ng-controller="produitController as ctrl"
+	layout="column" ng-cloak>
+	<div class="btn-group" role="group" aria-label="..."
+		style="margin-top: 5%; float: left;">
+
+		<div class="btn-group" role="group">
+			<button type="button" class="btn btn-default dropdown-toggle"
+				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Produits <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="/ajouterProduit.html">Ajouter produit</a></li>
+				<li><a href="/toutProduits.html">Consulter produits</a></li>
+			</ul>
+		</div>
+		<div class="btn-group" role="group">
+			<button type="button" class="btn btn-default dropdown-toggle"
+				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Fournisseurs <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="/ajouterFour.html">Ajouter fournisseur</a></li>
+				<li><a href="/toutFournisseur.html">Consulter fournisseurs</a></li>
+			</ul>
+		</div>
+	</div>
+	<br />
+	<br />
+	<div class="container">
+		<h2>Ajouter un nouveau produit</h2>
+		<div class="alert alert-success" ng-show="showMe">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Succé!</strong> ajout d'un produit avec succé.
+		</div>
+		<md-content layout-padding layout="column">
+		<form class="form-horizontal" role="form"
+			ng-submit="$event.preventDefault()">
+
+
+			<div class="col-sm-10">
+				<input type="text" class="form-control" placeholder="Quantité"
+					ng-model="quant"> <br /> <br /> <input type="text"
+					class="form-control" placeholder="Réference" ng-model="ref">
+				<br /> <br />
+
+				<md-autocomplete ng-disabled="ctrl.isDisabled"
+					md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem"
+					md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+					md-search-text="ctrl.searchText"
+					md-selected-item-change="ctrl.selectedItemChange(item)"
+					md-items="item in ctrl.querySearch(ctrl.searchText)"
+					md-item-text="item.nomFournisseur" md-min-length="0"
+					placeholder="Fournisseur"
+					md-menu-class="autocomplete-custom-template"> <md-item-template>
+				<span class="item-metadata"> <span class="item-metastat">
+						Nom fournisseur<strong> {{item.nomFournisseur}}</strong>
+				</span> <span class="item-metastat"> Adresse <strong>
+							{{item.adresseFournsseur}}</strong>
+
+				</span> <span class="item-metastat"> Téléphone <strong>
+							{{item.numPhone}}</strong>
+
+				</span>
+				</span> </md-item-template> </md-autocomplete>
+
+
+
+				<br>
+				<button type="submit" class="btn btn-success" ng-click="add()">Ajouter</button>
+			</div>
+		</form>
+		</md-content>
+	</div>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+
+	<!-- Angular Material Library -->
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

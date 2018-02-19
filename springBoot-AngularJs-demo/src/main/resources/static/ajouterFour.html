@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+<body ng-app="myApp" ng-controller="fourController">
+	<div class="btn-group" role="group" aria-label="..."
+		style="margin-top: 5%">
+
+		<div class="btn-group" role="group">
+			<button type="button" class="btn btn-default dropdown-toggle"
+				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Produits <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="/ajouterProduit.html">Ajouter produit</a></li>
+				<li><a href="/toutProduits.html">Consulter produits</a></li>
+			</ul>
+		</div>
+		
+		<div class="btn-group" role="group">
+			<button type="button" class="btn btn-default dropdown-toggle"
+				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Fournisseurs <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="/ajouterFour.html">Ajouter fournisseur</a></li>
+				<li><a href="/toutFournisseur.html">Consulter fournisseurs</a></li>
+			</ul>
+		</div>
+	</div>
+	<br />
+	<br />
+	<div class="container">
+		<h2>Ajouter un nouveau fournisseur</h2>
+		<form class="form-horizontal" role="form">
+
+
+			<div class="col-sm-10">
+				<input type="text" class="form-control"
+					placeholder="nom fournisseur" ng-model="nomFour"> <br /> <br />
+				<input type="text" class="form-control"
+					placeholder="Adresse Fournisseur" ng-model="adresseFournsseur">
+				<br /> <br /> <input type="text" class="form-control"
+					placeholder="numéro téléphone fournisseur" ng-model="numPhone">
+				<br /> <br /> <br />
+				<button type="submit" class="btn btn-success" ng-click="addFour()">Ajouter
+					fournisseur</button>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+
+	<!-- Angular Material Library -->
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+<body ng-app="myApp" ng-controller="fourController">
+	<div class="btn-group" role="group" aria-label="..."
+		style="margin-top: 5%">
+
+		<div class="btn-group" role="group">
+			<button type="button" class="btn btn-default dropdown-toggle"
+				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Produits <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="/ajouterProduit.html">Ajouter produit</a></li>
+				<li><a href="/toutProduits.html">Consulter produits</a></li>
+			</ul>
+		</div>
+		<div class="btn-group" role="group">
+			<button type="button" class="btn btn-default dropdown-toggle"
+				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Fournisseurs <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="/ajouterFour.html">Ajouter fournisseur</a></li>
+				<li><a href="/toutFournisseur.html">Consulter fournisseurs</a></li>
+			</ul>
+		</div>
+	</div>
+	<br />
+	<br />
+	<form>
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>nom Fournisseur</th>
+					<th>adresse fournisseur</th>
+					<th>numéro téléphone</th>
+				</tr>
+				<tr>
+					<th><input ng-model="filter.idf" style="width: 35px"></th>
+					<th><input ng-model="filter.nf" style="width: 80px"></th>
+					<th><input ng-model="filter.adf" style="width: 80px"></th>
+					<th><input ng-model="filter.numf" style="width: 80px"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="success"
+					ng-repeat="x in fournisseurs | filter: {nomFournisseur:filter.nf} | filter: {id:filter.idf} | filter: {adresseFournsseur:filter.adf} | filter: {numPhone:filter.numf}">
+					<td>{{x.id}}</td>
+					<td>{{x.nomFournisseur}}</td>
+					<td>{{x.adresseFournsseur}}</td>
+					<td>{{x.numPhone}}</td>
+					<td>
+						<button type="button" class="btn btn-danger"
+							ng-click="suppFour(x)">Supprimer</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+
+
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+
+	<!-- Angular Material Library -->
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
